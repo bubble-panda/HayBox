@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/75fb210a-fb80-4a6f-b643-8e18ec4c76b8)# HayBox
+# HayBox
 ## 前言
 我不太会用markdown，以下内容均可解压zip文件之后在文档教程中查看。
 这是一个比较基础的制作大乱斗BOX设备教程，固件方面使用的时候修改过的Haybox，可以配置多种游戏模式，多重键层。支持PC，Xbox，Nintendo 64，Nintendo Switch等平台，不支持PS平台(需要转换器)。框体方面采用超频A的框体样式，重新设计了图纸，将框体规格改为350*200*35mm。布局上分为两种，一种是20键的B0XX布局，一种是我自己优化的24键布局，两种布局使用的固件不一样，可以按需求选择。
