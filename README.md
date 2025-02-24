@@ -1,3 +1,212 @@
+![image](https://github.com/user-attachments/assets/75fb210a-fb80-4a6f-b643-8e18ec4c76b8)# HayBox
+## 前言
+
+这是一个比较基础的制作大乱斗BOX设备教程，固件方面使用的时候修改过的Haybox，可以配置多种游戏模式，多重键层。支持PC，Xbox，Nintendo 64，Nintendo Switch等平台，不支持PS平台(需要转换器)。框体方面采用超频A的框体样式，重新设计了图纸，将框体规格改为350*200*35mm。布局上分为两种，一种是20键的B0XX布局，一种是我自己优化的24键布局，两种布局使用的固件不一样，可以按需求选择。
+目前做了几种模式，对于传统格斗类，大乱斗类游戏是完全够用的。对于黑神话，艾尔登法环，只狼，甚至FPS类型的游戏，直接用Smash game (Rivals2/Ultimate/Fraymakers)的模式配置就行，用四个右摇杆键转换视角。但由于右摇杆被四个按键分为了四个右摇杆的输出点位，并不是线性的摇杆，在视角转换部分的体验没有手柄来得舒服。更详细的内容会在后面提到， 24键版本的固件是我本人改的。如果在使用过程中遇到了一些问题或者有更好的建议反馈，可以联系我。QQ;2335785076  微信；Bubble-PandaPuff
+
+## 材料清单
+
+要用到的工具：十字螺丝刀，剪刀，绝缘胶带。材料全部都已给出对应商品，扫描商品图片中的二维码可跳转商品页面，也可以自己去其他商家店铺选择同样的商品。街机按键根据个人需求，预算，喜欢来选择，本方案以拳霸24mm轻韧按键为例。（材料清单文件夹中有原图，二维码更清晰）
+1.	拳霸24mm轻韧按键25颗（备用1颗）![image](https://github.com/user-attachments/assets/1ab93fe3-6962-48d7-bee4-29739c8a607c)
+
+2.	Micro安卓口转打印方母口线0.3米![image](https://github.com/user-attachments/assets/8610406c-4e65-43b9-ae04-004925b75d7a)
+
+3.	打印机USB数据线1.5米，黑色带磁环![image](https://github.com/user-attachments/assets/d5811b8d-d33b-4b03-adde-40a6020dab55)
+
+4.	双通六角铜柱M3*27 10个![image](https://github.com/user-attachments/assets/2f61838a-06fd-4e73-a45a-b4a636abd292)
+
+5.	树莓派Raspberry Pi Pico 开发板 单主板 pico焊好排针![image](https://github.com/user-attachments/assets/b8d0f9a5-9efc-434b-9f12-540eab0dee5f)
+
+6.	黑色平头十字螺丝钉 M3*12![image](https://github.com/user-attachments/assets/b041e976-359f-41d6-8277-9198060e82ae)
+
+7.	HITBOX按钮数据线 红.1p 杜邦串13个110带护套 买2条（驳接成一条）![image](https://github.com/user-attachments/assets/2114f2fd-67c8-49cf-8d07-14b631024f26)
+
+8.	HITBOX游戏按键线 110(2.8)端子带胶套 26条（备用两条）![image](https://github.com/user-attachments/assets/ad7c71ab-27f6-4fae-ae6b-f5c2372aff67)
+
+9.	亚克力板子![image](https://github.com/user-attachments/assets/b906b314-ddb2-4feb-af2f-6d0d836c3fd4)
+
+本方案不使用面板图，有需要面板图的请参考超频A视频中的流程，并且将顶层面板更换为透明面板。
+
+材料的链接都放在压缩包了，需要的自取。
+
+### 亚克力打板注意事项：
+图纸参数按照实际亚克力板材厚度进行了优化，根据亚克力的实际厚度对侧板的卡槽进行了修改。图示中的亚克力商家的6mm实际厚度为5.5，考虑到了0.1mm的误差，将侧边的卡槽的矩形宽度修改为了5.6mm，这样修改可以让框体更加的牢固，侧边不容易晃动。如果去其他亚克力商家打板，请提前询问6mm亚克力的实际厚度数据，如果6mm亚克力实际厚度大于5.6mm，四块侧边的板子很可能卡不进去！
+
+## 固件烧录
+
+按住芯片上标注着BOOTSEL的白色按键连接电脑，连上电脑后会弹出一个类似U盘的窗口，松开按住的白色按键，将对应版本的固件.uf2文件复制或者直接拖到这个窗口中，窗口消失即是固件烧录成功。固件烧录完成之后，想更换固件，按住按键对应GP编号0，（正中间那个键）插入电脑，可以重新刷固件（相当于按住芯片上那个白色的键了，无需拆开框体再去按芯片上白色的键）
+![image](https://github.com/user-attachments/assets/2307121a-b02d-46e0-b12e-9932496c0a6e)
+
+![image](https://github.com/user-attachments/assets/bf43300a-9e47-488e-8be4-703dbc4ce90a)
+
+## 按键连接
+
+
+将材料中串13个端子的线驳接成一条![image](https://github.com/user-attachments/assets/fb6bbb93-6af2-4e6f-b6de-eab0530bf075)
+
+![image](https://github.com/user-attachments/assets/a395ba58-b539-4c19-968b-556821471a3f)
+
+
+![image](https://github.com/user-attachments/assets/ed481e9d-2bd9-441b-8c22-c8add7ffece1)
+
+![image](https://github.com/user-attachments/assets/493622da-2fbb-41a0-bb30-ebc4ac0c9102)
+
+然后将黑色那个头插在树莓派芯片上标着GND的排针上，然后把这条线其余的金色或者银色的头接在24颗按键的引脚上，每颗按键接一个引脚。
+
+
+![image](https://github.com/user-attachments/assets/889c511c-e70f-49ad-9a3e-07a79d75cdf8)
+
+![image](https://github.com/user-attachments/assets/b9d581fa-0d68-4daf-a869-8acf0570cecc)
+
+![image](https://github.com/user-attachments/assets/4f99a784-300f-4803-b877-b291ae66ed3a)
+
+
+![image](https://github.com/user-attachments/assets/09c13099-8eed-4c55-b52c-132def52fc36)
+
+20键版本与24键版本按键对应芯片的GP编号如下图：
+
+![image](https://github.com/user-attachments/assets/a3f21ce5-ff2e-4954-a13a-64e7fb7a7a72)
+
+
+![image](https://github.com/user-attachments/assets/62109b02-bca3-44cb-8dd5-5bd1f6534296)
+
+## 框体组装
+
+框体组装流程比较简单，具体可以参考超频A视频中的流程，可以跳伞10：00处。以上流程搞定基本上就是做完了，不出问题的画设备就可以正常用了。下面部分为设备测试及设备使用指南部分。
+https://www.bilibili.com/video/BV1rh411E7gS/?vd_source=0820846d6067f45a7b619094b125404f
+
+## 设备测试
+
+检查固件是否被电脑识别以及对应按键按下即可右对应输出，modifiers按键需要配合方向键来查看，单独按会没有输出。设备在不同的模式配置中对应的按键功能不同，在使用指南的模式切换中有详细说明。
+输入win+r，在搜索框中输入joy.cpl，会弹出游戏控制器窗口，Controller（Pico）即是Haybox固件所对应的控制器，点击属性可以检查按键连通性，以及按键对应的功能。部分电脑属性界面为空白，要测试按键对应功能也可以通过steam设置中的控制器选项来查看，yuzu，Dolphin等平台控制器设置中也可以查看。
+
+![image](https://github.com/user-attachments/assets/19e60421-d015-419b-ad47-a20980a9a492)
+
+![image](https://github.com/user-attachments/assets/1fe1f7af-cebe-40f7-ac43-e2ca8bcd0eb0)
+
+Bvoo她写了一个软件可用于设备测试，界面整洁使用简单，推荐用Bvoo测试软件进行设备测试
+https://github.com/bvoo/sloptester
+## 常见问题
+### 按住X的时候连接Switch之后，X对应的按键没有反应了
+可能是芯片的micro转打印母口线，打印口USB数据线出问题，更换这两条线材
+如果更换线材之后问题仍然存在，检查按键X对应的两个引脚的接线，接线不稳也有可能出现这样的问题，将按键连接线换新。
+
+### 手汗比较多，亚克力表面很容易脏
+使用磨砂方案的亚克力面板；用磨砂材质的汽车贴膜贴在表面；把顶面的那层板换成磨砂金属面板（贵）
+以上三种方法按需求任选其一。用磨砂亚克力是最快的，但磨砂亚克力还是会脏，而且沾上汗渍油渍更难清理；磨砂材质的汽车贴膜比较费手，第一次贴很容易出瑕疵；使用金属磨砂面板比较贵。
+
+### 按键不回弹，回弹受阻
+最直接的方法就是换按键，没有备用按键的话要重新买按键。
+还有一种方法，把按键两边卡着键帽的凸的地方往用螺丝刀，笔，筷子之类的东西往里面推一些（两边都要推），推到按键回弹正常为止。注意推压力度不要太大，否则键帽会变高或者键帽会弹出。
+
+### 设备在手柄硬件测试网站上或者软件上无法识别
+Haybox的固件在很多手柄测试的网站上无法被识别，https://hardwaretester.com/gamepad常用的硬件测试网址在Windows系统下无法识别Haybox，在Linux系统下可以正常识别。设备测试中已写对应检测方法。
+
+### NS上有些模式摇杆输出错乱
+每个模式都有设置对应的摇杆参数，比如以太之战2 Rivals2模式在PC端进行优化。将摇杆圆的直径设置为了256，而在NS端上优化的Ultimate模式摇杆圆的直径设置为了200。此时在NS上使用Rivals2模式将会出现摇杆的左右方向相互颠倒，上下方向相互颠倒的情况，在NS上使用摇杆圆直径为200的模式可避免此类问题。
+
+### 自定义键位，游戏模式配置
+此固件按键功能与芯片GP编号已经对应，改键位在物理层面改变按键的接线以外，在按键接线流程中可以改变。需要完全自定义键位，游戏模式，Haybox中有对应的基础教程，零基础小白花点时间也能搞懂，修改固件的过程中遇到问题可前往discord中，加入Crane的服务器craneslab.xyz/discord，有更专业的人解答。
+
+## 使用指南
+20键现有的固件在一些模式上优化的不够好，我这边只写24键版本的固件的使用指南。使用20键版本的固件可以参考原版Haybox以及Austin的Haybox改版20键版本（对以太之战2有相关优化），需要看得懂英文。
+![image](https://github.com/user-attachments/assets/ef2a65c5-125d-4689-b452-60642d16365b)
+
+## 1模式切换
+设备连接PC或NS及其他相关平台之后，同时按下6 + 0 + 按键对应GP编号切换到相应模式，其中PC端的默认模式是以太之战2 Rivals2模式，NS端的模式模式是任斗 Ultimate模式。需要切换到其他模式请手动切换。设备模式切换表如下，模式具体内容在后面提及。
+![image](https://github.com/user-attachments/assets/737bc166-12b3-48c2-b313-42c1646cf898)
+
+### 1.1 以太之战2模式
+以太之战2模式优化的比较完善。如果你有更好的建议，可以联系我
+![image](https://github.com/user-attachments/assets/e5c50524-69d8-43c3-a06c-9c152d62bdec)
+最右上角为十字键左，按下mod-z之后再按这个键变为十字键右，对应以太之战2训练场的重置以及保存，设置在右手方便按的位置用于快速重置位置，及在重置极限位置之后快速输，实战中十字键为嘲讽键，如果怕误触嘲讽，可以把键位设置中把D-pad movement给开启。
+十字键左下面那个是左摇杆50度，按下mod-z之后这个键变为左摇杆130度，这个功能用于输入jab推进反方向的上t（需要在同一帧输入左上或者右上），此外，也有优化反方向下t，及按下mod-x或者mod-y之后再按这个键，会输入左摇杆的斜下，但几乎不用。
+
+### 1.2 传统格斗Fgc模式
+传统格斗模式如下，如果你有更好的建议，可以联系我。
+![image](https://github.com/user-attachments/assets/ddad62dd-9686-459b-a825-8249aec22611)
+按下mod-x之后，右手大拇指区域四个键将切换为右摇杆键，右摇杆按键布局参考Rivals2模式。
+在街霸6中，左手下方向与十字键上方向回中，右手大拇指有一颗标注着“与左摇杆下相互覆盖”的那颗十字键上，与左手下方向相互覆盖。
+该模式默认SOCD为后覆盖，布局中有多个上方向，其中只有一个左摇杆的上方向（wasd区域），其他都是十字键上方向。不同的格斗游戏对左摇杆与十字键的关系判定并不一致，例如街霸6中左摇杆与十字键相反方向同时按下会回中，而在龙珠斗士中十字键将会覆盖左摇杆，左摇杆无法覆盖十字键。右手大拇指标注的“与左摇杆相互覆盖”，那颗十字键上在所有格斗游戏中都可以与左摇杆下相互覆盖，没有标注的只是普通十字键，根据游戏对左摇杆与十字键的判定关系变化而变化。
+
+### 1.3 任斗Ultimate模式
+任斗Ultimate模式如下，如果你有更好的建议，可以联系我。
+![image](https://github.com/user-attachments/assets/5cc0bff9-ca6c-4539-92f9-59d31fdea750)
+请按住GP编号22连接NS！！！否则会出现设备连接上马上断连的情况。
+任斗Ultimate我并不熟悉，很多键位设计细节了解不到位，玩家可以根据自己合适的键位设置进行设置，该键位布局可设置按键是大大超出ultimate本身的键位设置需求，玩家可根据自身需求进行合理优化。由于ultimate键位设置中可以设置三个十字键，该布局增设了三个十字键供玩家优化自身键位，其中有两个相同的A按键，功能完全一样。
+图示中的手柄按键名称是XBOX的按键名称，按住GP编号22连接NS之后是识别成PRO手柄，玩家进入ultimate键位设置界面，点击测试，按下对应的按键可以得到按键对应PRO手柄的按键名称。按键名称的对应关系如下：
+![image](https://github.com/user-attachments/assets/6ddcf613-cb1d-43bd-8122-1b2434f66f34)
+
+### 1.4 任斗Ultimate2模式
+任斗Ultimate2模式如下，该模式增加了一键普b，空n，Smash及一键小跳功能，这个模式很明显是违规的，同时在键位布局上有几颗按键存在对应关系，无法更改，使用前请慎重考虑。相关东西尽量不要联系我。
+![image](https://github.com/user-attachments/assets/45dc04f0-b610-4275-9a8b-f2ee72376475)
+这个键位布局中按键之间的联系给键位设置带来了不少局限性，图示中A必须设置成attack，B必须设置成special，Y和LB必须设置成跳，这样才能让一键空n，普b，smash，小跳起作用。
+按下Smash时候，设备同时输出A和B;   按下S-Jump时，设备同时输出Y+LB;
+按下N-air时，设备左摇杆强制回中的同时输出A;  按下N-special时，设备左摇杆强制回中的同时输出B
+
+### 1.5 自用模式
+以下是我本人自用的一些游戏模式，如有需要，可以自行切换。
+
+#### 龙珠斗士DBFZ模式 6 + 0 + 26
+![image](https://github.com/user-attachments/assets/7f6de2c5-d62b-42b9-9456-c849ffb3bc0a)
+
+#### SSF2模式 6 + 0 + 19
+![image](https://github.com/user-attachments/assets/1b5c7d79-669a-4418-9855-9a1590569f1b)
+
+#### Fraymaker模式 6 + 0 + 20
+![image](https://github.com/user-attachments/assets/428f1fc2-b470-4e44-9701-4092589fe06a)
+
+### 1.6 键盘模式
+键盘模式都是字母，不做图例示范。
+切换到键盘模式步骤，先按住21插入电脑，接上电脑后松开21，同时按7 + 0 + 5切换到键盘模式。
+
+
+## 2平台切换
+(大部分玩家是在NS或者PC上用，PC直连就行，按住22插入NS).
+如果什么按键都没有按住，直接连接设备，默认就是 XInput, PC上绝大部分游戏都能正常使用. 其他对应的平台，或者相对应的输入后端要按住图示中标号的按键切换到对应的平台。
+22 - Nintendo Switch USB mode  （按住22 插入Switch主机，会识别成pro手柄）
+19 - DInput mode (只建议在游戏不支持XInput的时候使用)
+15 - GameCube backend with polling rate fix disabled (用于ngc转换器)
+116 - Nintendo 64 backend (60Hz 轮询率)
+
+## 3大乱斗类游戏相关操作（特别篇）
+此部分主要围绕modifiers按键展开，如果你有其他想补充的，可以联系我。
+### 3.1 角度调整
+已wasd布局为例，（wd wa as ds）形成45°角之后，输入mod-x变成近似30°的角度；输入mod-y变成近似60°的角度。形成30°或者60°之后，再输入一个右摇杆键进行微调。图示如下：
+![image](https://github.com/user-attachments/assets/4bd8bff1-d358-471c-a9df-1265a896480f)
+![image](https://github.com/user-attachments/assets/93087cad-c883-4d09-b4d6-89d50d6e5eaa)
+48方向在没有按额外按键的情况下是全推摇杆100%推出，要做到80% 60%摇杆推出需要按额外的键。例如：按下wd在第一象限形成45°角，按下mod-x之后是30°角，再按下右摇杆的上形成40°角。此时没有按额外的按键，为100%摇杆推出。此时按下按键GP编号20，摇杆80%推出；此时按下按键GP编号22，摇杆60%推出；此时同时按下按键GP编号20与22，摇杆以一个细微的幅度推出。(摇杆推出幅度功能用于任斗中的皮卡丘及稀客等角色的上B, 以太之战2中的Forsburn也是同理)
+这和BOXX的modifers的角度调整逻辑类似，但modifiers配合右摇杆键的对应的微调角度有差别，如果想用原版，可以参考BOXX的设备说明文档。
+
+### 3.2 走路速度调整
+当按下mod-y时输入水平方向的左摇杆键，输出为轻推左摇杆，慢走；（实际以游戏判定为准）
+当按下mod-x时输入水平方向的左摇杆键，输出为中推左摇杆，快走/小跑；（实际以游戏判定为准）
+当什么都不按输入水平方向的左摇杆键，输出为全推左摇杆，冲刺/跑；（实际以游戏判定为准）
+
+### 3.3 急停功能
+由于按下modx或mody之后输入水平方向的摇杆键，会识别为快走或者快慢走，在dash冲刺或者run跑的时候按下modx或者mody，然后输入相反的水平方向左摇杆键，实现转身急停，配合此功能可以做到转身急停出t以及jab。
+### 3.4 斜横向强攻击
+输入45°（-45°）之后按下mod-x会形成近似30°（-30°）的角度，此时输入attack可以出斜横t。
+### 3.5 右摇杆斜向di
+按住mod-z之后，输入左摇杆45度之后按下右摇杆的键，右摇杆会输出斜上或斜下的角度。例如：输入左摇杆右下之后按右摇杆下，右摇杆会往下倾斜；输入左摇杆右下之后按右摇杆右，右摇杆会往右倾斜。
+## 相关内容
+作为国内首批进行以太之战2内测的大怨种玩家，内测以太之战2之前用键盘玩了很久的ssf2，后面发现以太之战2中需要更多的角度与更多精细化的操作，键盘远远满足不了我的需求。当时买了个破手柄试了一下，发现好难适应手柄，移动都不太会移动了，更别说那些难点的操作了。然后我就想定制个有多重左摇杆方向的hitbox，问了三家都做不了，毕竟当时流行的是GP2040固件,适用于传统格斗，而且当时国内改装固件人的少，定制hitbox的商家也很少，更别说按照这么奇怪的要求定制了。大部分都是现成的固件直接拿来用的，定制主要也是定制个布局。
+后来我就自己找了一些资源，看了超频a的hitbox制作视频，自己改了一个20键布局的box，用的固件是pico-rectangle，用起来基本的功能是有了，但是模式少，同时也有不少的局限性。后面加入了Crane discord，里面有很多资源和大佬，了解到了haybox固件及其教程。一点一点的学，现在基本的功能已经会改了。有时间精力的小伙伴也可以尝试。以下是相关内容及资源：
+https://www.bilibili.com/video/BV1rh411E7gS/?share_source=copy_web&vd_source=fb0f03b29df4c53d7cb13f8779334701
+https://github.com/JonnyHaystack/HayBox
+https://github.com/901Austin/HayBox/blob/haybox-rivals2-smash64/src/modes/Rivals2.cpp
+https://github.com/JulienBernard3383279/pico-rectangle
+http://craneslab.xyz/discord
+https://github.com/OtaK/b0xx-viewer-rs
+https://www.youtube.com/watch?v=w4r5CNIimU0&list=LL&index=25&t=8s
+https://www.youtube.com/watch?v=JE7BwEGd3VY&list=LL&index=27
+https://discord.com/invite/jhAAsqJ
+https://b0xx.com/
+https://www.hitboxarcade.com/products/smash-box
+https://www.bilibili.com/video/BV1NX4y1x7Ti/?spm_id_from=333.337.search-card.all.click&vd_source=0820846d6067f45a7b619094b125404f
+https://github.com/GRAMCTRL/remapp.ing
+
+以下是原版的readme
 # HayBox
 
 HayBox is a modular, cross-platform firmware for digital or mixed analog/digital controllers, primarily targeted at [B0XX](https://b0xx.com)-style controllers.
